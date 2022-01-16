@@ -1,0 +1,20 @@
+module.exports = {
+  name: '@authok/authok-react',
+  out: './docs/',
+  toc: [
+    'useAuthok',
+    'withAuthok',
+    'withAuthenticationRequired',
+    'AuthokProvider',
+    'AuthokContext',
+    'AuthokProviderOptions',
+    'AuthokContextInterface',
+    'WithAuthokProps',
+    'WithAuthenticationRequiredOptions',
+  ],
+  exclude: ['./src/utils.tsx', './src/reducer.tsx', './src/auth-state.tsx'],
+  excludeExternals: false,
+  excludePrivate: true,
+  hideGenerator: true,
+  readme: './README.md',
+};

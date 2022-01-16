@@ -1,0 +1,345 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@authok/authok-react</title>
+	<meta name="description" content="Documentation for @authok/authok-react">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@authok/authok-react</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>@authok/authok-react</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#authokauthok-react" id="authokauthok-react" style="color: inherit; text-decoration: none;">
+					<h1>@authok/authok-react</h1>
+				</a>
+				<p>Authok SDK for React Single Page Applications (SPA).</p>
+				<p><a href="https://circleci.com/gh/authok/authok-react"><img src="https://img.shields.io/circleci/build/github/authok/authok-react.svg?branch=master&style=flat" alt="CircleCI"></a>
+					<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/:license-mit-blue.svg?style=flat" alt="License"></a>
+					<a href="https://www.npmjs.com/package/@authok/authok-react"><img src="https://img.shields.io/npm/v/@authok/authok-react.svg?style=flat" alt="npm"></a>
+				<a href="https://codecov.io/gh/authok/authok-react"><img src="https://img.shields.io/codecov/c/github/authok/authok-react/master.svg?style=flat" alt="codecov"></a></p>
+				<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
+					<h2>Table of Contents</h2>
+				</a>
+				<ul>
+					<li><a href="#documentation">Documentation</a></li>
+					<li><a href="#installation">Installation</a></li>
+					<li><a href="#getting-started">Getting Started</a></li>
+					<li><a href="#contributing">Contributing</a></li>
+					<li><a href="#support--feedback">Support + Feedback</a></li>
+					<li><a href="#troubleshooting">Troubleshooting</a></li>
+					<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+					<li><a href="#vulnerability-reporting">Vulnerability Reporting</a></li>
+					<li><a href="#what-is-authok">What is Authok</a></li>
+					<li><a href="#license">License</a></li>
+				</ul>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
+				<ul>
+					<li><a href="https://authok.github.io/authok-react/">API Reference</a></li>
+					<li><a href="https://authok.cn/docs/quickstart/spa/react">Quickstart Guide</a></li>
+				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<p>Using <a href="https://npmjs.org/">npm</a></p>
+				<pre><code class="language-bash"><span style="color: #000000">npm install @authok/authok-react</span>
+</code></pre>
+				<p>Using <a href="https://yarnpkg.com/">yarn</a></p>
+				<pre><code class="language-bash"><span style="color: #000000">yarn add @authok/authok-react</span>
+</code></pre>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h2>Getting Started</h2>
+				</a>
+				<p>Configure the SDK by wrapping your application in <code>AuthokProvider</code>:</p>
+				<pre><code class="language-jsx"><span style="color: #000000">// src/index.js</span>
+<span style="color: #000000">import React from &#039;react&#039;;</span>
+<span style="color: #000000">import ReactDOM from &#039;react-dom&#039;;</span>
+<span style="color: #000000">import { AuthokProvider } from &#039;@authok/authok-react&#039;;</span>
+<span style="color: #000000">import App from &#039;./App&#039;;</span>
+
+<span style="color: #000000">ReactDOM.render(</span>
+<span style="color: #000000">  &lt;AuthokProvider</span>
+<span style="color: #000000">    domain=&quot;YOUR_AUTHOK_DOMAIN&quot;</span>
+<span style="color: #000000">    clientId=&quot;YOUR_AUTHOK_CLIENT_ID&quot;</span>
+<span style="color: #000000">    redirectUri={window.location.origin}</span>
+<span style="color: #000000">  &gt;</span>
+<span style="color: #000000">    &lt;App /&gt;</span>
+<span style="color: #000000">  &lt;/AuthokProvider&gt;,</span>
+<span style="color: #000000">  document.getElementById(&#039;app&#039;)</span>
+<span style="color: #000000">);</span>
+</code></pre>
+				<p>Use the <code>useAuthok</code> hook in your components to access authentication state (<code>isLoading</code>, <code>isAuthenticated</code> and <code>user</code>) and authentication methods (<code>loginWithRedirect</code> and <code>logout</code>):</p>
+				<pre><code class="language-jsx"><span style="color: #000000">// src/App.js</span>
+<span style="color: #000000">import React from &#039;react&#039;;</span>
+<span style="color: #000000">import { useAuthok } from &#039;@authok/authok-react&#039;;</span>
+
+<span style="color: #000000">function App() {</span>
+<span style="color: #000000">  const {</span>
+<span style="color: #000000">    isLoading,</span>
+<span style="color: #000000">    isAuthenticated,</span>
+<span style="color: #000000">    error,</span>
+<span style="color: #000000">    user,</span>
+<span style="color: #000000">    loginWithRedirect,</span>
+<span style="color: #000000">    logout,</span>
+<span style="color: #000000">  } = useAuthok();</span>
+
+<span style="color: #000000">  if (isLoading) {</span>
+<span style="color: #000000">    return &lt;div&gt;Loading...&lt;/div&gt;;</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">  if (error) {</span>
+<span style="color: #000000">    return &lt;div&gt;Oops... {error.message}&lt;/div&gt;;</span>
+<span style="color: #000000">  }</span>
+
+<span style="color: #000000">  if (isAuthenticated) {</span>
+<span style="color: #000000">    return (</span>
+<span style="color: #000000">      &lt;div&gt;</span>
+<span style="color: #000000">        Hello {user.name}{&#039; &#039;}</span>
+<span style="color: #000000">        &lt;button onClick={() =&gt; logout({ returnTo: window.location.origin })}&gt;</span>
+<span style="color: #000000">          Log out</span>
+<span style="color: #000000">        &lt;/button&gt;</span>
+<span style="color: #000000">      &lt;/div&gt;</span>
+<span style="color: #000000">    );</span>
+<span style="color: #000000">  } else {</span>
+<span style="color: #000000">    return &lt;button onClick={loginWithRedirect}&gt;Log in&lt;/button&gt;;</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #000000">export default App;</span>
+</code></pre>
+				<p>If you&#39;re using TypeScript, you can pass a type parameter to <code>useAuthok</code> to specify the type of <code>user</code>:</p>
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">user</span><span style="color: #000000"> } = </span><span style="color: #795E26">useAuthok</span><span style="color: #000000">&lt;{ </span><span style="color: #001080">name</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000"> }&gt;();</span>
+
+<span style="color: #001080">user</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">; </span><span style="color: #008000">// is a string</span>
+</code></pre>
+				<a href="#use-with-a-class-component" id="use-with-a-class-component" style="color: inherit; text-decoration: none;">
+					<h3>Use with a Class Component</h3>
+				</a>
+				<p>Use the <code>withAuthok</code> higher order component to add the <code>authok</code> property to Class components:</p>
+				<pre><code class="language-jsx"><span style="color: #000000">import React, { Component } from &#039;react&#039;;</span>
+<span style="color: #000000">import { withAuthok } from &#039;@authok/authok-react&#039;;</span>
+
+<span style="color: #000000">class Profile extends Component {</span>
+<span style="color: #000000">  render() {</span>
+<span style="color: #000000">    // `this.props.authok` has all the same properties as the `useAuthok` hook</span>
+<span style="color: #000000">    const { user } = this.props.authok;</span>
+<span style="color: #000000">    return &lt;div&gt;Hello {user.name}&lt;/div&gt;;</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #000000">export default withAuthok(Profile);</span>
+</code></pre>
+				<a href="#protect-a-route" id="protect-a-route" style="color: inherit; text-decoration: none;">
+					<h3>Protect a Route</h3>
+				</a>
+				<p>Protect a route component using the <code>withAuthenticationRequired</code> higher order component. Visits to this route when unauthenticated will redirect the user to the login page and back to this page after login:</p>
+				<pre><code class="language-jsx"><span style="color: #000000">import React from &#039;react&#039;;</span>
+<span style="color: #000000">import { withAuthenticationRequired } from &#039;@authok/authok-react&#039;;</span>
+
+<span style="color: #000000">const PrivateRoute = () =&gt; &lt;div&gt;Private&lt;/div&gt;;</span>
+
+<span style="color: #000000">export default withAuthenticationRequired(PrivateRoute, {</span>
+<span style="color: #000000">  // Show a message while the user waits to be redirected to the login page.</span>
+<span style="color: #000000">  onRedirecting: () =&gt; &lt;div&gt;Redirecting you to the login page...&lt;/div&gt;,</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p><strong>Note</strong> If you are using a custom router, you will need to supply the <code>AuthokProvider</code> with a custom <code>onRedirectCallback</code> method to perform the action that returns the user to the protected page. See examples for <a href="https://github.com/authok/authok-react/blob/master/EXAMPLES.md#1-protecting-a-route-in-a-react-router-dom-app">react-router</a>, <a href="https://github.com/authok/authok-react/blob/master/EXAMPLES.md#2-protecting-a-route-in-a-gatsby-app">Gatsby</a> and <a href="https://github.com/authok/authok-react/blob/master/EXAMPLES.md#3-protecting-a-route-in-a-nextjs-app-in-spa-mode">Next.js</a>.</p>
+				<a href="#call-an-api" id="call-an-api" style="color: inherit; text-decoration: none;">
+					<h3>Call an API</h3>
+				</a>
+				<p>Call a protected API with an Access Token:</p>
+				<pre><code class="language-jsx"><span style="color: #000000">import React, { useEffect, useState } from &#039;react&#039;;</span>
+<span style="color: #000000">import { useAuthok } from &#039;@authok/authok-react&#039;;</span>
+
+<span style="color: #000000">const Posts = () =&gt; {</span>
+<span style="color: #000000">  const { getAccessTokenSilently } = useAuthok();</span>
+<span style="color: #000000">  const [posts, setPosts] = useState(null);</span>
+
+<span style="color: #000000">  useEffect(() =&gt; {</span>
+<span style="color: #000000">    (async () =&gt; {</span>
+<span style="color: #000000">      try {</span>
+<span style="color: #000000">        const token = await getAccessTokenSilently({</span>
+<span style="color: #000000">          audience: &#039;https://api.example.com/&#039;,</span>
+<span style="color: #000000">          scope: &#039;read:posts&#039;,</span>
+<span style="color: #000000">        });</span>
+<span style="color: #000000">        const response = await fetch(&#039;https://api.example.com/posts&#039;, {</span>
+<span style="color: #000000">          headers: {</span>
+<span style="color: #000000">            Authorization: `Bearer ${token}`,</span>
+<span style="color: #000000">          },</span>
+<span style="color: #000000">        });</span>
+<span style="color: #000000">        setPosts(await response.json());</span>
+<span style="color: #000000">      } catch (e) {</span>
+<span style="color: #000000">        console.error(e);</span>
+<span style="color: #000000">      }</span>
+<span style="color: #000000">    })();</span>
+<span style="color: #000000">  }, [getAccessTokenSilently]);</span>
+
+<span style="color: #000000">  if (!posts) {</span>
+<span style="color: #000000">    return &lt;div&gt;Loading...&lt;/div&gt;;</span>
+<span style="color: #000000">  }</span>
+
+<span style="color: #000000">  return (</span>
+<span style="color: #000000">    &lt;ul&gt;</span>
+<span style="color: #000000">      {posts.map((post, index) =&gt; {</span>
+<span style="color: #000000">        return &lt;li key={index}&gt;{post}&lt;/li&gt;;</span>
+<span style="color: #000000">      })}</span>
+<span style="color: #000000">    &lt;/ul&gt;</span>
+<span style="color: #000000">  );</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #000000">export default Posts;</span>
+</code></pre>
+				<p>For a more detailed example see how to <a href="https://github.com/authok/authok-react/blob/master/EXAMPLES.md#4-create-a-useapi-hook-for-accessing-protected-apis-with-an-access-token">create a <code>useApi</code> hook for accessing protected APIs with an access token</a>.</p>
+				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
+					<h2>Contributing</h2>
+				</a>
+				<p>We appreciate feedback and contribution to this repo! Before you get started, please see the following:</p>
+				<ul>
+					<li><a href="https://github.com/authok/open-source-template/blob/master/GENERAL-CONTRIBUTING.md">Authok&#39;s general contribution guidelines</a></li>
+					<li><a href="https://github.com/authok/open-source-template/blob/master/CODE-OF-CONDUCT.md">Authok&#39;s code of conduct guidelines</a></li>
+					<li><a href="https://github.com/authok/authok-react/blob/master/CONTRIBUTING.md">This repo&#39;s contribution guide</a></li>
+				</ul>
+				<a href="#support--feedback" id="support--feedback" style="color: inherit; text-decoration: none;">
+					<h2>Support + Feedback</h2>
+				</a>
+				<p>For support or to provide feedback, please <a href="https://github.com/authok/authok-react/issues">raise an issue on our issue tracker</a>.</p>
+				<a href="#troubleshooting" id="troubleshooting" style="color: inherit; text-decoration: none;">
+					<h2>Troubleshooting</h2>
+				</a>
+				<p>For information on how to solve common problems, check out the <a href="https://github.com/authok/authok-react/blob/master/TROUBLESHOOTING.md">Troubleshooting</a> guide</p>
+				<a href="#frequently-asked-questions" id="frequently-asked-questions" style="color: inherit; text-decoration: none;">
+					<h2>Frequently Asked Questions</h2>
+				</a>
+				<p>For a rundown of common issues you might encounter when using the SDK, please check out the <a href="https://github.com/authok/authok-react/blob/master/FAQ.md">FAQ</a>.</p>
+				<a href="#vulnerability-reporting" id="vulnerability-reporting" style="color: inherit; text-decoration: none;">
+					<h2>Vulnerability Reporting</h2>
+				</a>
+				<p>Please do not report security vulnerabilities on the public GitHub issue tracker. The <a href="https://authok.cn/whitehat">Responsible Disclosure Program</a> details the procedure for disclosing security issues.</p>
+				<a href="#what-is-authok" id="what-is-authok" style="color: inherit; text-decoration: none;">
+					<h2>What is Authok?</h2>
+				</a>
+				<p>Authok helps you to easily:</p>
+				<ul>
+					<li>Implement authentication with multiple identity providers, including social (e.g., Google, Facebook, Microsoft, LinkedIn, GitHub, Twitter, etc), or enterprise (e.g., Windows Azure AD, Google Apps, Active Directory, ADFS, SAML, etc.)</li>
+					<li>Log in users with username/password databases, passwordless, or multi-factor authentication</li>
+					<li>Link multiple user accounts together</li>
+					<li>Generate signed JSON Web Tokens to authorize your API calls and flow the user identity securely</li>
+					<li>Access demographics and analytics detailing how, when, and where users are logging in</li>
+					<li>Enrich user profiles from other data sources using customizable JavaScript rules</li>
+				</ul>
+				<p><a href="https://authok.cn/why-authok">Why Authok?</a></p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>This project is licensed under the MIT license. See the <a href="https://github.com/authok/authok-react/blob/master/LICENSE">LICENSE</a> file for more info.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/authok_context.html">authok-<wbr>context</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/authok_provider.html">authok-<wbr>provider</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/errors.html">errors</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/index.html">index</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/use_authok.html">use-<wbr>authok</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/with_authok.html">with-<wbr>authok</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/with_authentication_required.html">with-<wbr>authentication-<wbr>required</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
