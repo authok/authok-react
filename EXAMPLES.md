@@ -1,13 +1,13 @@
-# Examples
+# 例子
 
-- [Examples](#examples)
-  - [1. Protecting a route in a `react-router-dom` app](#1-protecting-a-route-in-a-react-router-dom-app)
-  - [2. Protecting a route in a Gatsby app](#2-protecting-a-route-in-a-gatsby-app)
-  - [3. Protecting a route in a Next.js app (in SPA mode)](#3-protecting-a-route-in-a-nextjs-app-in-spa-mode)
+- [例子](#例子)
+  - [1. 在 `react-router-dom` 应用中保护路由](#1-在-react-router-dom-应用中保护路由)
+  - [2. 在 Gatsby 应用中保护路由](#2-在-gatsby-应用中保护路由)
+  - [3. 在 Next.js 应用中保护路由 (SPA模式)](#3-在-nextjs-应用中保护路由-spa模式)
   - [4. Create a `useApi` hook for accessing protected APIs with an access token.](#4-create-a-useapi-hook-for-accessing-protected-apis-with-an-access-token)
   - [5. Use with Authok organizations](#5-use-with-authok-organizations)
 
-## 1. Protecting a route in a `react-router-dom` app
+## 1. 在 `react-router-dom` 应用中保护路由
 
 So that we can access the router `history` outside of the `Router` component you need to [create your own history object](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components). We can reference this object from the `AuthokProvider`'s `onRedirectCallback`.
 
@@ -53,11 +53,11 @@ export default function App() {
 
 See [react-router example app](./examples/cra-react-router)
 
-## 2. Protecting a route in a Gatsby app
+## 2. 在 Gatsby 应用中保护路由
 
-Wrap the root element in your `AuthokProvider` to configure the SDK and setup the context for the `useAuthok` hook.
+把根元素包装在你的 `AuthokProvider` 中, 用于配置 SDK 并为 `useAuthok` hook 提供上下文.
 
-The `onRedirectCallback` will use `gatsby`'s `navigate` function to return the user to the protected route after the login:
+`onRedirectCallback` 将使用 `gatsby` 的 `navigate` 函数在用户登录后返回受保护路由:
 
 ```jsx
 // gatsby-browser.js
@@ -84,7 +84,7 @@ export const wrapRootElement = ({ element }) => {
 };
 ```
 
-Create a page that you want to be protected, e.g. a profile page, and wrap it in the `withAuthenticationRequired` HOC:
+创建一个受保护页面, 例如 个人主页, 把它包装在 `withAuthenticationRequired` HOC 中:
 
 ```jsx
 // src/pages/profile.js
@@ -105,9 +105,9 @@ const Profile = () => {
 export default withAuthenticationRequired(Profile);
 ```
 
-See [Gatsby example app](./examples/gatsby-app)
+查看 [Gatsby 示例应用](./examples/gatsby-app)
 
-## 3. Protecting a route in a Next.js app (in SPA mode)
+## 3. 在 Next.js 应用中保护路由 (SPA模式)
 
 Wrap the root element in your `AuthokProvider` to configure the SDK and setup the context for the `useAuthok` hook.
 
