@@ -1,7 +1,7 @@
 {
   "author": "Authok",
   "name": "@authok/authok-react",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Authok SDK for React Single Page Applications (SPA)",
   "keywords": [
     "authok",

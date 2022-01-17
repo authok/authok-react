@@ -1,52 +1,52 @@
 # @authok/authok-react
 
-Authok SDK for React Single Page Applications (SPA).
+用于React单页应用程序（SPA）的 Authok SDK.
 
-[![CircleCI](https://img.shields.io/circleci/build/github/authok/authok-react.svg?branch=master&style=flat)](https://circleci.com/gh/authok/authok-react)
+[![CircleCI](https://img.shields.io/circleci/build/github/authok/authok-react.svg?branch=main&style=flat)](https://circleci.com/gh/authok/authok-react)
 [![License](https://img.shields.io/:license-mit-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
 [![npm](https://img.shields.io/npm/v/@authok/authok-react.svg?style=flat)](https://www.npmjs.com/package/@authok/authok-react)
-[![codecov](https://img.shields.io/codecov/c/github/authok/authok-react/master.svg?style=flat)](https://codecov.io/gh/authok/authok-react)
+[![codecov](https://img.shields.io/codecov/c/github/authok/authok-react/main.svg?style=flat)](https://codecov.io/gh/authok/authok-react)
 
-## Table of Contents
+## 目录
 
 - [@authok/authok-react](#authokauthok-react)
-  - [Table of Contents](#table-of-contents)
-  - [Documentation](#documentation)
-  - [Installation](#installation)
-  - [Getting Started](#getting-started)
-    - [Use with a Class Component](#use-with-a-class-component)
-    - [Protect a Route](#protect-a-route)
-    - [Call an API](#call-an-api)
-  - [Contributing](#contributing)
-  - [Support + Feedback](#support--feedback)
-  - [Troubleshooting](#troubleshooting)
-  - [Frequently Asked Questions](#frequently-asked-questions)
-  - [Vulnerability Reporting](#vulnerability-reporting)
-  - [What is Authok?](#what-is-authok)
-  - [License](#license)
+  - [目录](#目录)
+  - [文档](#文档)
+  - [安装](#安装)
+  - [开始](#开始)
+    - [与类组件一起使用](#与类组件一起使用)
+    - [保护路由](#保护路由)
+    - [调用 API](#调用-api)
+  - [贡献](#贡献)
+  - [支持 + 反馈](#支持--反馈)
+  - [故障排除](#故障排除)
+  - [常见问题](#常见问题)
+  - [漏洞报告](#漏洞报告)
+  - [什么是 Authok?](#什么是-authok)
+  - [许可(License)](#许可license)
 
-## Documentation
+## 文档
 
-- [API Reference](https://authok.github.io/authok-react/)
-- [Quickstart Guide](https://authok.cn/docs/quickstart/spa/react)
+- [API 参考](https://authok.github.io/authok-react/)
+- [快速入门指南](https://authok.cn/docs/quickstart/spa/react)
 
-## Installation
+## 安装
 
-Using [npm](https://npmjs.org/)
+使用 [npm](https://npmjs.org/)
 
 ```bash
 npm install @authok/authok-react
 ```
 
-Using [yarn](https://yarnpkg.com/)
+使用 [yarn](https://yarnpkg.com/)
 
 ```bash
 yarn add @authok/authok-react
 ```
 
-## Getting Started
+## 开始
 
-Configure the SDK by wrapping your application in `AuthokProvider`:
+把你的应用包含在 `AuthokProvider` 中:
 
 ```jsx
 // src/index.js
@@ -67,7 +67,7 @@ ReactDOM.render(
 );
 ```
 
-Use the `useAuthok` hook in your components to access authentication state (`isLoading`, `isAuthenticated` and `user`) and authentication methods (`loginWithRedirect` and `logout`):
+在组件中使用 `useAuthok` hook 来访问认证状态 (`isLoading`, `isAuthenticated` 和 `user`) 和 认证方法 (`loginWithRedirect` 和 `logout`):
 
 ```jsx
 // src/App.js
@@ -94,21 +94,21 @@ function App() {
   if (isAuthenticated) {
     return (
       <div>
-        Hello {user.name}{' '}
+        你好 {user.name}{' '}
         <button onClick={() => logout({ returnTo: window.location.origin })}>
-          Log out
+          退登
         </button>
       </div>
     );
   } else {
-    return <button onClick={loginWithRedirect}>Log in</button>;
+    return <button onClick={loginWithRedirect}>登录</button>;
   }
 }
 
 export default App;
 ```
 
-If you're using TypeScript, you can pass a type parameter to `useAuthok` to specify the type of `user`:
+如果你使用 TypeScript, 你可以传递类型参数给到 `useAuthok` 来指定 `user` 的类型:
 
 ```ts
 const { user } = useAuthok<{ name: string }>();
@@ -116,9 +116,9 @@ const { user } = useAuthok<{ name: string }>();
 user.name; // is a string
 ```
 
-### Use with a Class Component
+### 与类组件一起使用
 
-Use the `withAuthok` higher order component to add the `authok` property to Class components:
+使用 `withAuthok` 高阶组件来添加 `authok` 属性到类组件:
 
 ```jsx
 import React, { Component } from 'react';
@@ -128,16 +128,16 @@ class Profile extends Component {
   render() {
     // `this.props.authok` has all the same properties as the `useAuthok` hook
     const { user } = this.props.authok;
-    return <div>Hello {user.name}</div>;
+    return <div>你好 {user.name}</div>;
   }
 }
 
 export default withAuthok(Profile);
 ```
 
-### Protect a Route
+### 保护路由
 
-Protect a route component using the `withAuthenticationRequired` higher order component. Visits to this route when unauthenticated will redirect the user to the login page and back to this page after login:
+使用 `withAuthenticationRequired` 高阶组件来保护路由. 未认证状态访问此路由会重定向用户到登录页面并在登录后返回此页面:
 
 ```jsx
 import React from 'react';
@@ -147,15 +147,15 @@ const PrivateRoute = () => <div>Private</div>;
 
 export default withAuthenticationRequired(PrivateRoute, {
   // Show a message while the user waits to be redirected to the login page.
-  onRedirecting: () => <div>Redirecting you to the login page...</div>,
+  onRedirecting: () => <div>重定向到登录页...</div>,
 });
 ```
 
-**Note** If you are using a custom router, you will need to supply the `AuthokProvider` with a custom `onRedirectCallback` method to perform the action that returns the user to the protected page. See examples for [react-router](https://github.com/authok/authok-react/blob/master/EXAMPLES.md#1-protecting-a-route-in-a-react-router-dom-app), [Gatsby](https://github.com/authok/authok-react/blob/master/EXAMPLES.md#2-protecting-a-route-in-a-gatsby-app) and [Next.js](https://github.com/authok/authok-react/blob/master/EXAMPLES.md#3-protecting-a-route-in-a-nextjs-app-in-spa-mode).
+**注意** 如果你使用自定义路由, 你需要提供给 `AuthokProvider` 一个自定义的 `onRedirectCallback` 方法来执行重定向回调的动作. 参考 [react-router](https://github.com/authok/authok-react/blob/master/EXAMPLES.md#1-protecting-a-route-in-a-react-router-dom-app), [Gatsby](https://github.com/authok/authok-react/blob/master/EXAMPLES.md#2-protecting-a-route-in-a-gatsby-app) and [Next.js](https://github.com/authok/authok-react/blob/master/EXAMPLES.md#3-protecting-a-route-in-a-nextjs-app-in-spa-mode).
 
-### Call an API
+### 调用 API
 
-Call a protected API with an Access Token:
+通过 Access Token 来调用收保护的 API:
 
 ```jsx
 import React, { useEffect, useState } from 'react';
@@ -200,45 +200,45 @@ const Posts = () => {
 export default Posts;
 ```
 
-For a more detailed example see how to [create a `useApi` hook for accessing protected APIs with an access token](https://github.com/authok/authok-react/blob/master/EXAMPLES.md#4-create-a-useapi-hook-for-accessing-protected-apis-with-an-access-token).
+关于更详细示例，请参考如何[创建一个 `useApi` hook，并使用 Access Token 访问受保护的API](https://github.com/authok/authok-react/blob/main/EXAMPLES.md#4-create-a-useapi-hook-for-accessing-protected-apis-with-an-access-token).
 
-## Contributing
+## 贡献
 
-We appreciate feedback and contribution to this repo! Before you get started, please see the following:
+我们在这里感谢大家对本仓库的反馈和贡献！在开始之前，请参阅以下内容:
 
-- [Authok's general contribution guidelines](https://github.com/authok/open-source-template/blob/master/GENERAL-CONTRIBUTING.md)
-- [Authok's code of conduct guidelines](https://github.com/authok/open-source-template/blob/master/CODE-OF-CONDUCT.md)
-- [This repo's contribution guide](https://github.com/authok/authok-react/blob/master/CONTRIBUTING.md)
+- [Authok 的贡献指南](https://github.com/authok/open-source-template/blob/master/GENERAL-CONTRIBUTING.md)
+- [Authok 的行为准则指南](https://github.com/authok/open-source-template/blob/master/CODE-OF-CONDUCT.md)
+- [本仓库的贡献指南](https://github.com/authok/authok-react/blob/main/CONTRIBUTING.md)
 
-## Support + Feedback
+## 支持 + 反馈
 
-For support or to provide feedback, please [raise an issue on our issue tracker](https://github.com/authok/authok-react/issues).
+如需支持或提供反馈，请 [在我们的issue tracker 中提交 issue](https://github.com/authok/authok-react/issues).
 
-## Troubleshooting
+## 故障排除
 
-For information on how to solve common problems, check out the [Troubleshooting](https://github.com/authok/authok-react/blob/master/TROUBLESHOOTING.md) guide
+有关如何解决常见问题的信息，请查看 [故障排除](https://github.com/authok/authok-react/blob/main/TROUBLESHOOTING.md) 指南
 
-## Frequently Asked Questions
+## 常见问题
 
-For a rundown of common issues you might encounter when using the SDK, please check out the [FAQ](https://github.com/authok/authok-react/blob/master/FAQ.md).
+有关使用SDK时可能遇到的常见问题，请查看 [FAQ](https://github.com/authok/authok-react/blob/main/FAQ.md).
 
-## Vulnerability Reporting
+## 漏洞报告
 
-Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://authok.cn/whitehat) details the procedure for disclosing security issues.
+请不要在 GitHub 公开的问题跟踪器上报告安全漏洞. [披露计划](https://authok.cn/whitehat) 中详细说明了披露安全问题的流程.
 
-## What is Authok?
+## 什么是 Authok?
 
-Authok helps you to easily:
+Authok 帮助您轻松地:
 
-- Implement authentication with multiple identity providers, including social (e.g., Google, Facebook, Microsoft, LinkedIn, GitHub, Twitter, etc), or enterprise (e.g., Windows Azure AD, Google Apps, Active Directory, ADFS, SAML, etc.)
-- Log in users with username/password databases, passwordless, or multi-factor authentication
-- Link multiple user accounts together
-- Generate signed JSON Web Tokens to authorize your API calls and flow the user identity securely
-- Access demographics and analytics detailing how, when, and where users are logging in
-- Enrich user profiles from other data sources using customizable JavaScript rules
+- 使用多个身份提供程序实现身份验证, 包括社会化 (e.g., 微信, 企业微信, 支付宝, 抖音, 微博, Google, Facebook, Microsoft, LinkedIn, GitHub, Twitter 等), 或企业 (e.g., Windows Azure AD, Google Apps, Active Directory, ADFS, SAML 等.)
+- 用 用户名/密码 数据库模式, 免密模式, 或者 多因素认证 模式登录用户
+- 将多个用户账户进行关联
+- 生成签名 JSON Web Token 以授权API调用并安全地传递用户身份
+- 用户登录方式、时间, 地点的统计和分析
+- 使用可定制的JavaScript规则从其他数据源丰富用户档案
 
-[Why Authok?](https://authok.cn/why-authok)
+[为什么使用 Authok?](https://authok.cn/why-authok)
 
-## License
+## 许可(License)
 
-This project is licensed under the MIT license. See the [LICENSE](https://github.com/authok/authok-react/blob/master/LICENSE) file for more info.
+本项目基于 MIT 许可. 参考 [LICENSE](https://github.com/authok/authok-react/blob/main/LICENSE) 文件以获取更多信息.
