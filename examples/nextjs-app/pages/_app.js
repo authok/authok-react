@@ -13,6 +13,7 @@ const onRedirectCallback = (appState) => {
 class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
+//https://s0.lucfish.com/authok/js/lock/11.32.0/lock.min.js
     return (
       <AuthokProvider
         domain={process.env.NEXT_PUBLIC_DOMAIN}

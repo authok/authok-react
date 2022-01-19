@@ -253,6 +253,7 @@ const AuthokProvider = (opts: AuthokProviderOptions): JSX.Element => {
         const user = await client.getUser();
         dispatch({ type: 'INITIALISED', user });
       } catch (error) {
+        console.log('xxxerror: ', error);
         dispatch({ type: 'ERROR', error: loginError(error) });
       }
     })();
