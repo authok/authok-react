@@ -122,7 +122,7 @@ export default function IndexPage(props) {
         hooks: {
           loggingIn: async function (context, done) {
             // Currently, context is always null but might be used in the future.
-            console.log('hook: 登录成功');
+            console.log('hook: 准备登录');
 
             const transactionStorage = SessionStorage;
             const transactionManager = new TransactionManager(
@@ -147,7 +147,7 @@ export default function IndexPage(props) {
           },
           signingUp: function (context, done) {
             // Currently, context is always null but might be used in the future.
-            console.log('hook: 注册成功');
+            console.log('hook: 准备注册');
             done();
           }
         }

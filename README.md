@@ -95,7 +95,7 @@ function App() {
     return (
       <div>
         你好 {user.name}{' '}
-        <button onClick={() => logout({ returnTo: window.location.origin })}>
+        <button onClick={() => logout({ return_to: window.location.origin })}>
           退登
         </button>
       </div>

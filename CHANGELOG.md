@@ -93,7 +93,7 @@
 
 **Breaking Change**
 
-- Allow custom `returnTo` in `withAuthenticationRequired` [\#41](https://github.com/authok/authok-react/pull/41) ([adamjmcgrath](https://github.com/adamjmcgrath))
+- Allow custom `return_to` in `withAuthenticationRequired` [\#41](https://github.com/authok/authok-react/pull/41) ([adamjmcgrath](https://github.com/adamjmcgrath))
 
 ## [v0.4.0](https://github.com/authok/authok-react/tree/v0.4.0) (2020-06-05)
 
