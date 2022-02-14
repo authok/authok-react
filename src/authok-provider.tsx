@@ -138,14 +138,13 @@ export interface AuthokProviderOptions {
    */
   scope?: string;
   /**
-   * The default audience to be used for requesting API access.
+   * 用于 API 访问的默认 audience.
    */
   audience?: string;
   /**
-   * The Id of an organization to log in to.
+   * 要登入组织的 Id.
    *
-   * This will specify an `organization` parameter in your user's login request and will add a step to validate
-   * the `org_id` claim in your user's ID Token.
+   * 会在用户登录请求中设置 `organization` 参数, 并在 ID Token 的 claims 中校验 `org_id`.
    */
   organization?: string;
   /**
