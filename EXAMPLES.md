@@ -5,7 +5,7 @@
   - [2. 在 Gatsby 应用中保护路由](#2-在-gatsby-应用中保护路由)
   - [3. 在 Next.js 应用中保护路由 (SPA模式)](#3-在-nextjs-应用中保护路由-spa模式)
   - [4. Create a `useApi` hook for accessing protected APIs with an access token.](#4-create-a-useapi-hook-for-accessing-protected-apis-with-an-access-token)
-  - [5. Use with Authok organizations](#5-use-with-authok-organizations)
+  - [5. 使用 Authok 的组织](#5-使用-authok-的组织)
 
 ## 1. 在 `react-router-dom` 应用中保护路由
 
@@ -263,11 +263,11 @@ export const Profile = () => {
 };
 ```
 
-## 5. Use with Authok organizations
+## 5. 使用 Authok 的组织
 
-[Organizations](https://authok.cn/docs/organizations) is a set of features that provide better support for developers who build and maintain SaaS and Business-to-Business (B2B) applications. Note that Organizations is currently only available to customers on our Enterprise and Startup subscription plans.
+[Organizations](https://authok.cn/docs/organizations) 用于更好的支持开发者构建/维护 SaaS 和 B2B 应用.
 
-To log the user in to an organization, you should specify the organization in the `AuthokProvider` props.
+在 `AuthokProvider` props 中指定 organization 参数, 来设定用户登入组织.
 
 ```jsx
 ReactDOM.render(
@@ -285,7 +285,7 @@ ReactDOM.render(
 );
 ```
 
-To accept an invite from an organization, you should call `loginWithRedirect` with the `invitation` and `organization` parameters.
+如果需要接受组织邀请, 可以在调用 `loginWithRedirect` 时指定 `invitation` 和 `organization` 参数.
 
 ```jsx
 import React from 'react';
