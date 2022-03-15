@@ -144,7 +144,7 @@ export interface AuthokContextInterface<TUser extends User = User>
    * If the `localOnly` option is specified, it only clears the application session.
    * It is invalid to set both the `federated` and `localOnly` options to `true`,
    * and an error will be thrown if you do.
-   * [Read more about how Logout works at Authok](https://authok.cn/docs/logout).
+   * [Read more about how Logout works at Authok](https://docs.authok.cn/logout).
    */
   logout: (options?: LogoutOptions) => void;
 
