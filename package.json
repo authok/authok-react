@@ -1,7 +1,7 @@
 {
   "author": "Authok",
   "name": "@authok/authok-react",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "description": "Authok SDK for React Single Page Applications (SPA)",
   "keywords": [
     "authok",
@@ -10,7 +10,11 @@
     "PKCE",
     "Single Page Application authentication",
     "SPA authentication",
-    "react"
+    "react",
+    "登录",
+    "授权码认证流程",
+    "单页应用认证",
+    "SPA认证"
   ],
   "files": [
     "src",
@@ -100,6 +104,6 @@
     }
   },
   "dependencies": {
-    "@authok/authok-spa-js": "^1.19.6"
+    "@authok/authok-spa-js": "^1.19.7"
   }
 }
